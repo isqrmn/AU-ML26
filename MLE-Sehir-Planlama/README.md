@@ -1,4 +1,5 @@
 ***MLE - Akıllı Şehir Trafik Modelleme***
+
 *Bu proje, akıllı şehir sistemlerinde trafik yoğunluğunu modellemek amacıyla Maximum Likelihood Estimation yönteminin teorik ve pratik uygulamasını içermektedir.*
 
 **1. Problem Tanımı**
