@@ -8,23 +8,36 @@ Popüler uygulamaları arasında öneri algoritmaları da vardır, bunlardan en 
 Aynı zamanda PCA gibi algoritmalarda kullanılır hatta "insan yüzü 60 elemandır"ı yayacak kadar da başarılıdır sıkıştırmada.
 
 **2. Soru: EIG**
+
 numpy.linalg.eig fonksiyonu, karesel bir matrisin özdeğerlerini ve özvektörlerini hesaplayan temel arayüzdür. Kullanımı w, v = np.linalg.eig(A) şeklindedir.
+
 
 Girdi Çıktı:
   A: Kare Matris Input.
+  
   w (Eigenvalues): Matrisin özdeğerlerini içeren tek boyutlu bir dizi, sırasız.
+  
   v (Eigenvectors): Normalize edilmiş özvektörler (sütunlar okunmalı tek alınırsa).
+
 
 Arka Plan:
   Numpy bu karmaşık hesaplamaları python ile sıfırdan yapmaz, arkada aslında low-level kod vardır.
+  
   LAPACK Kütüphanesi: Dökümantasyon aslında çoğu matematiksel işin Lapack'a devredildiğini yazmış.
+  
   _geev ve QR: Numpy, genel matrisler için LAPACK içindeki _geev fonksiyonlarını çağırır. 5X5 den büyük matrislerde iteratif yöntemlere geçerek yakınsamaya çalışır.
+  
   Karmaşık Sayı Yönetimi: Sonuçlar karmaşık sayı çıkabilir. Fonksiyon bu durumu da yönetir ama kullanıcı görmez.
 
+
 İteratif-Mantıksal Yapısı:
+
   A = QR  ayrışımı bulunur sonra A_new = R * Q şeklinde güncellenir ardından değerlerle yakınsama kontrolü yaparak belli bir adıma veya toleransa ulaşıncaya kadar devam eder (mini_qr'dakinin low level hali aslında). Ardından vektör normalize edilir uzunluğu 1 yapılır ve return edilir.
 
 **Kaynak**
+
 https://linear.axler.net/LADR4e.pdf
+
 https://codesignal.com/learn/courses/navigating-data-simplification-with-pca/lessons/mastering-pca-eigenvectors-eigenvalues-and-covariance-matrix-explained
+
 https://numpy.org/doc/2.1/reference/generated/numpy.linalg.eig.html
